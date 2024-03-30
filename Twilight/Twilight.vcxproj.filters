@@ -13,7 +13,9 @@
     <ClInclude Include="src\Twilight\Core.h">
       <Filter>Twilight</Filter>
     </ClInclude>
-    <ClInclude Include="src\Twilight\EntryPoint.h" />
+    <ClInclude Include="src\Twilight\EntryPoint.h">
+      <Filter>Twilight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Twilight\Application.cpp">

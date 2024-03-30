@@ -26,7 +26,7 @@ workspace "Twilight"
 
     includedirs
     {
-      -- "Twilight/deplibs/spdlog/include",
+      "Twilight/deplibs/spdlog/include",
       "Twilight/src"
     }
 
@@ -73,7 +73,7 @@ workspace "Twilight"
 
     includedirs
     {
-      -- "%{prj.name}deplibs/spdlog/include",
+      "%{prj.name}/deplibs/spdlog/include",
       "%{prj.name}/src"
     }
 
