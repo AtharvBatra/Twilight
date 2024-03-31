@@ -1,3 +1,6 @@
 [submodule "Twilight/deplibs/spdlog"]
 	path = Twilight/deplibs/spdlog
 	url = git@github.com:gabime/spdlog
+[submodule "Twilight/deplibs/GLFW"]
+	path = Twilight/deplibs/GLFW
+	url = git@github.com:AtharvBatra/GLFW.git

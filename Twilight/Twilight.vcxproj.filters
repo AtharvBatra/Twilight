@@ -4,6 +4,9 @@
     <Filter Include="Twilight">
       <UniqueIdentifier>{D1B96AC6-BD86-C5D1-E69F-B379D2CBFA5F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Twilight\Events">
+      <UniqueIdentifier>{9510356B-019C-A22F-0AAD-252476B7FE2F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Twilight.h" />
@@ -16,10 +19,30 @@
     <ClInclude Include="src\Twilight\EntryPoint.h">
       <Filter>Twilight</Filter>
     </ClInclude>
+    <ClInclude Include="src\Twilight\Events\ApplicationEvent.h">
+      <Filter>Twilight\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Twilight\Events\Event.h">
+      <Filter>Twilight\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Twilight\Events\KeyEvent.h">
+      <Filter>Twilight\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Twilight\Events\MouseEvent.h">
+      <Filter>Twilight\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Twilight\Log.h">
+      <Filter>Twilight</Filter>
+    </ClInclude>
+    <ClInclude Include="src\twipch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Twilight\Application.cpp">
       <Filter>Twilight</Filter>
     </ClCompile>
+    <ClCompile Include="src\Twilight\Log.cpp">
+      <Filter>Twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="src\twipch.cpp" />
   </ItemGroup>
 </Project>

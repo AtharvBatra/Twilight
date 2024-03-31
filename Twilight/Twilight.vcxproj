@@ -76,7 +76,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>twipch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TWI_PLATFORM_WINDOWS;TWI_BUILD_DLL;TWI_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>deplibs\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -94,7 +95,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>twipch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TWI_PLATFORM_WINDOWS;TWI_BUILD_DLL;TWI_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>deplibs\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -116,7 +118,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>twipch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TWI_PLATFORM_WINDOWS;TWI_BUILD_DLL;TWI_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>deplibs\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -141,9 +144,19 @@
     <ClInclude Include="src\Twilight\Application.h" />
     <ClInclude Include="src\Twilight\Core.h" />
     <ClInclude Include="src\Twilight\EntryPoint.h" />
+    <ClInclude Include="src\Twilight\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Twilight\Events\Event.h" />
+    <ClInclude Include="src\Twilight\Events\KeyEvent.h" />
+    <ClInclude Include="src\Twilight\Events\MouseEvent.h" />
+    <ClInclude Include="src\Twilight\Log.h" />
+    <ClInclude Include="src\twipch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Twilight\Application.cpp" />
+    <ClCompile Include="src\Twilight\Log.cpp" />
+    <ClCompile Include="src\twipch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

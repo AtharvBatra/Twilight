@@ -65,6 +65,9 @@ workspace "Twilight"
     targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir)
 
+    pchheader "twipch.h"
+    pchsource "%{prj.name}/src/twipch.cpp"
+
     files
     {
       "%{prj.name}/src/**.h",
