@@ -7,6 +7,9 @@
     <Filter Include="Twilight\Events">
       <UniqueIdentifier>{9510356B-019C-A22F-0AAD-252476B7FE2F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Twilight\Platform">
+      <UniqueIdentifier>{4591D928-B1A7-D7BE-FA1E-63E06674A846}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Twilight.h" />
@@ -34,6 +37,12 @@
     <ClInclude Include="src\Twilight\Log.h">
       <Filter>Twilight</Filter>
     </ClInclude>
+    <ClInclude Include="src\Twilight\Platform\WindowsWindow.h">
+      <Filter>Twilight\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Twilight\Window.h">
+      <Filter>Twilight</Filter>
+    </ClInclude>
     <ClInclude Include="src\twipch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +51,9 @@
     </ClCompile>
     <ClCompile Include="src\Twilight\Log.cpp">
       <Filter>Twilight</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Twilight\Platform\WindowsWindow.cpp">
+      <Filter>Twilight\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\twipch.cpp" />
   </ItemGroup>

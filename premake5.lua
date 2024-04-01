@@ -10,6 +10,11 @@ workspace "Twilight"
 
   outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+  IncludeDir = {}
+  IncludeDir["GLFW"] = "Twilight/deplibs/GLFW/include"
+
+  include "Twilight/deplibs/GLFW"
+
   project "Sky"
     location "Sky"
     kind "ConsoleApp"
@@ -77,7 +82,14 @@ workspace "Twilight"
     includedirs
     {
       "%{prj.name}/deplibs/spdlog/include",
-      "%{prj.name}/src"
+      "%{prj.name}/src",
+      "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+      "GLFW",
+      "opengl32.lib"
     }
 
     filter "system:windows"

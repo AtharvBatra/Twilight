@@ -1,5 +1,5 @@
-#include <Twilight.h>
 #include "twipch.h"
+#include <Twilight.h>
 
 class Sky : public Twilight::Application {
 public:

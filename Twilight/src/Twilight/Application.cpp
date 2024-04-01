@@ -5,7 +5,6 @@ namespace Twilight {
 
 	Application::Application()
 	{
-
 	}
 
 	Application::~Application()
@@ -15,7 +14,9 @@ namespace Twilight {
 
 	void Application::Run()
 	{
-		while (true);
+		while (m_running)
+		{
+		}
 	}
 
 }

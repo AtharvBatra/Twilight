@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
+#include "Window.h"
 
 namespace Twilight {
 
@@ -11,6 +13,9 @@ namespace Twilight {
 		virtual ~Application();
 		
 		void Run();
+		
+	private:
+		bool m_running = true;
 	};
 
 	// Definition expected in client
