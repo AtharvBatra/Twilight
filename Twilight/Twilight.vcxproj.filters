@@ -44,6 +44,8 @@
       <Filter>Twilight</Filter>
     </ClInclude>
     <ClInclude Include="src\twipch.h" />
+    <ClInclude Include="src\Twilight\Layer.h" />
+    <ClInclude Include="src\Twilight\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Twilight\Application.cpp">
@@ -56,5 +58,7 @@
       <Filter>Twilight\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\twipch.cpp" />
+    <ClCompile Include="src\Twilight\Layer.cpp" />
+    <ClCompile Include="src\Twilight\LayerStack.cpp" />
   </ItemGroup>
 </Project>

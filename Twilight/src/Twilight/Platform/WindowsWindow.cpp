@@ -1,12 +1,19 @@
 #include "twipch.h"
 
-// TODO: Fix GLFW error OR switch to Win32 API
-/*
 #include "WindowsWindow.h"
+
+#include "Twilight/Events/ApplicationEvent.h"
+#include "Twilight/Events/KeyEvent.h"
+#include "Twilight/Events/MouseEvent.h"
 
 namespace Twilight {
 
 	static bool s_GLFWInitialised = false;
+
+	static void GlfwErrorCallback(int error, const char* description)
+	{
+		TWI_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
+	}
 
 	Window* Window::Create(const WindowProps& props)
 	{
@@ -35,6 +42,7 @@ namespace Twilight {
 		{
 			int success = glfwInit();
 			TWI_CORE_ASSERT(success, "Could not initialise GLFW :(");
+			glfwSetErrorCallback(GlfwErrorCallback);
 
 			s_GLFWInitialised = true;
 		}
@@ -43,6 +51,90 @@ namespace Twilight {
 		glfwMakeContextCurrent(m_window);
 		glfwSetWindowUserPointer(m_window, &m_data);
 		SetVSync(true);
+
+		// Setting up GLFW callbacks
+		glfwSetWindowSizeCallback(m_window, [](GLFWwindow* window, int width, int height)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.Width = width;
+			data.Height = height;
+
+			WindowResizeEvent event(width, height);
+			data.EventCallback(event);
+		});
+
+		glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			
+			WindowCloseEvent event;
+			data.EventCallback(event);
+		});
+
+		glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			switch (action)
+			{
+			case GLFW_PRESS:
+			{
+				KeyPressedEvent event(key, 0);
+				data.EventCallback(event);
+				break;
+			}
+			case GLFW_RELEASE:
+			{
+				KeyReleasedEvent event(key);
+				data.EventCallback(event);
+				break;
+			}
+			case GLFW_REPEAT:
+			{
+				KeyPressedEvent event(key, 1);
+				data.EventCallback(event);
+				break;
+			}
+			}
+		});
+
+		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+
+			switch (action)
+			{
+			case GLFW_PRESS:
+			{
+				MouseButtonPressedEvent event(button);
+				data.EventCallback(event);
+				break;
+			}
+			case GLFW_RELEASE:
+			{
+				MouseButtonReleasedEvent event(button);
+				data.EventCallback(event);
+				break;
+			}
+			}
+		});
+
+		glfwSetScrollCallback(m_window, [](GLFWwindow* window, double x_offset, double y_offset)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			MouseScrollEvent event((float)x_offset, (float)y_offset);
+			data.EventCallback(event);
+		});
+
+		glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double x_pos, double y_pos)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			MouseMovedEvent event((float)x_pos, (float)y_pos);
+			data.EventCallback(event);
+		});
 	}
 
 	void WindowsWindow::Shutdown()
@@ -72,4 +164,3 @@ namespace Twilight {
 	}
 
 }
-*/

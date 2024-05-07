@@ -41,7 +41,7 @@ namespace Twilight {
 		{
 			return GetCategoryFlags()& category;
 		}
-	protected:
+	public:
 		bool m_handled = false;
 	};
 
@@ -59,7 +59,7 @@ namespace Twilight {
 			if (m_event.GetEventType() == T::GetStaticType())
 			{
 				m_event.m_handled = func(*(T*)&m_event);
-				return true
+				return true;
 			}
 			return false;
 		}

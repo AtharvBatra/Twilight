@@ -4,7 +4,7 @@
 
 extern Twilight::Application* Twilight::CreateApplication();
 
-int main(int argc, char** argv)
+int main(int* argc, char** argv)
 {
 	Twilight::Log::Init();
 

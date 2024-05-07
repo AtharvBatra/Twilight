@@ -42,7 +42,7 @@ workspace "Twilight"
 
     filter "system:windows"
       cppdialect "C++17"
-      staticruntime "On"
+      staticruntime "on"
       systemversion "latest"
 
       defines
@@ -53,14 +53,17 @@ workspace "Twilight"
     filter "configurations:Debug"
       defines "TWI_DEBUG"
       symbols "On"
+      buildoptions "/MDd"
 
     filter "configurations:Release"
       defines "TWI_RELEASE"
       optimize "On"
+      buildoptions "/MD"
 
     filter "configurations:Dist"
       defines "TWI_DIST"
       optimize "On"
+      buildoptions "/MD"
 
   project "Twilight"
     location "Twilight"
@@ -89,12 +92,13 @@ workspace "Twilight"
     links
     {
       "GLFW",
-      "opengl32.lib"
+      "opengl32.lib",
+      "dwmapi.lib"
     }
 
     filter "system:windows"
       cppdialect "C++17"
-      staticruntime "On"
+      staticruntime "on"
       systemversion "latest"
 
       defines
@@ -106,11 +110,14 @@ workspace "Twilight"
     filter "configurations:Debug"
       defines "TWI_DEBUG"
       symbols "On"
+      buildoptions "/MDd"
 
     filter "configurations:Release"
       defines "TWI_RELEASE"
       optimize "On"
+      buildoptions "/MD"
 
     filter "configurations:Dist"
       defines "TWI_DIST"
       optimize "On"
+      buildoptions "/MD"

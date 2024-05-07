@@ -84,13 +84,14 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Twilight.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
@@ -107,6 +108,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -114,7 +116,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\Twilight.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
@@ -131,6 +133,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -138,7 +141,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Twilight.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
@@ -151,6 +154,8 @@
     <ClInclude Include="src\Twilight\Events\Event.h" />
     <ClInclude Include="src\Twilight\Events\KeyEvent.h" />
     <ClInclude Include="src\Twilight\Events\MouseEvent.h" />
+    <ClInclude Include="src\Twilight\Layer.h" />
+    <ClInclude Include="src\Twilight\LayerStack.h" />
     <ClInclude Include="src\Twilight\Log.h" />
     <ClInclude Include="src\Twilight\Platform\WindowsWindow.h" />
     <ClInclude Include="src\Twilight\Window.h" />
@@ -158,6 +163,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Twilight\Application.cpp" />
+    <ClCompile Include="src\Twilight\Layer.cpp" />
+    <ClCompile Include="src\Twilight\LayerStack.cpp" />
     <ClCompile Include="src\Twilight\Log.cpp" />
     <ClCompile Include="src\Twilight\Platform\WindowsWindow.cpp" />
     <ClCompile Include="src\twipch.cpp">
